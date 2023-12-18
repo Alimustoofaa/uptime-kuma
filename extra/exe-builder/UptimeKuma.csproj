@@ -12,7 +12,7 @@
         <FileAlignment>512</FileAlignment>
         <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
         <Deterministic>true</Deterministic>
-        <ApplicationIcon>..\..\public\favicon.ico</ApplicationIcon>
+        <ApplicationIcon>..\..\public\icon.png</ApplicationIcon>
         <LangVersion>9</LangVersion>
     </PropertyGroup>
     <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -171,8 +171,8 @@
             <AutoGen>True</AutoGen>
             <DependentUpon>Resources.resx</DependentUpon>
         </Compile>
-        <None Include="..\..\public\favicon.ico">
-            <Link>favicon.ico</Link>
+        <None Include="..\..\public\icon.png">
+            <Link>icon.png</Link>
         </None>
         <None Include="packages.config" />
         <None Include="Properties\Settings.settings">

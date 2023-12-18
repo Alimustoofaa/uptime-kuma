@@ -1,0 +1,22 @@
+# Use the official Node.js image as the base image
+FROM node:18-alpine
+
+# Set the working directory in the container
+WORKDIR /usr/src/app
+
+# Copy package.json and package-lock.json to the container
+COPY package*.json ./
+
+# Install dependencies
+RUN npm install --force
+
+# Copy the rest of the application code
+COPY ../. .
+
+RUN npm run build
+
+# Expose the port that your application runs on
+EXPOSE 3000 3001
+
+HEALTHCHECK --interval=60s --timeout=30s --start-period=180s --retries=5 CMD extra/healthcheck
+CMD ["node", "server/server.js"]

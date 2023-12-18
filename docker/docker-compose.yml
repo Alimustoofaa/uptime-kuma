@@ -1,15 +1,20 @@
-version: '3.8'
+version: '3'
 
 services:
-  uptime-kuma:
-    image: louislam/uptime-kuma:1
-    container_name: uptime-kuma
-    volumes:
-      - uptime-kuma:/app/data
+  monitoring-device:
+    build:
+      context: ../
+      dockerfile: docker/dockerfile.source
+    container_name: monitoring_device
     ports:
-      - "3001:3001"  # <Host Port>:<Container Port>
+      - "3000:3000"
+      - "3001:3001"
+    volumes:
+      - ../data:/usr/src/app/data
+    networks:
+      - app-network
     restart: always
 
-volumes:
-  uptime-kuma:
-
+networks:
+  app-network:
+    driver: bridge
